@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accessibility Checker Widget</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+    
+    <body>
+        <div class="ac-widget">
+            <div class="ac-header">
+                <div class="ac-logo"></div>
+                <div class="ac-title">Accessibility Checker</div>
+            </div>
+            <div class="ac-input-group">
+                <input type="url" id="ac-url" placeholder="https://example.com">
+                <button id="ac-scan-btn">Scan Website</button>
+            </div>
+            <div class="ac-spinner" id="ac-spinner"></div>
+            <div class="ac-report" id="ac-report">
+                <div class="ac-grade" id="ac-grade">Grade: A</div>
+                <ul id="ac-issues"></ul>
+                <div class="ac-recommendations" id="ac-recs"></div>
+                <div class="ac-cta-buttons">
+                    <button class="pdf" id="ac-download">Download Report as PDF</button>
+                    <button class="audit" id="ac-request-audit">Request Full Audit</button>
+                    <a href="#" class="plugins" id="ac-plugins">Get Fixes & Plugins</a>
+                </div>
+                <div class="ac-disclaimer">This is a basic automated check; some issues may require manual review.</div>
+            </div>
+        </div>
+    
+      <script src="script.js"></script>
+    
+    
+    
+    </body>
+    
+    </html>
+
+</body>
+</html>
