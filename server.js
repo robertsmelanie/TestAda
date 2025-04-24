@@ -1,5 +1,3 @@
- 
-    // Server - side(Node.js + Express + axe - core) example:
 
 const express = require('express');
 const fetch = require('node-fetch');
