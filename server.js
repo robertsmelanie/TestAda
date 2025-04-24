@@ -4,6 +4,8 @@ const fetch = require('node-fetch');
 const { JSDOM } = require('jsdom');
 const axe = require('axe-core');
 const app = express();
+const path = require('path');
+app.use(express.static(path.join(__dirname))); // serves index.html and script.js from your folder
 
 app.get('/api/analyze', async (req, res) => {
     const { url } = req.query;
