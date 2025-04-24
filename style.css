@@ -109,6 +109,7 @@
  .ac-cta-buttons .pdf {
      background: var(--accent-color);
      color: #fff;
+     color: black;
  }
 
  .ac-cta-buttons .audit {
