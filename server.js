@@ -2,9 +2,9 @@ import express from 'express';
 import { runLighthouse } from './lighthouse-audit.js';
 import pa11y from 'pa11y';
 
-const app = express();
+// const app = express();
 
-const express = require('express');
+// const express = require('express');
 const { JSDOM } = require('jsdom');
 const axe = require('axe-core');
 
