@@ -1,3 +1,52 @@
+// May 2, 2025
+import { launch } from 'chrome-launcher';
+import lighthouse from 'lighthouse';
+import fs from 'fs';
+import express from 'express';
+const app = express();
+
+
+app.get('/lighthouse', async (req, res) => {
+    try {
+        const url = req.query.url;
+        const report = await runLighthouse(url);
+        res.json(report);
+    } catch (error) {
+        res.status(500).send(err.toString());
+    }
+});
+app.listen(3000, () => {
+    console.log('Server is running on http://localhost:3000');
+});
+
+
+const report = await runLighthouse(url);
+fs.writeFileSync('lighthouse-report.json', JSON.stringify(report, null, 2));
+
+import { run } from 'axe-core';
+
+async function runLighthouse(url) {
+    const chrome = await launch({ chromeFlags: ['--headless'] });
+    const options = {
+        logLevel: 'info',
+        output: 'html',
+        output: 'json',
+        onlyCategories: ['performance', 'accessibility', 'best-practices', 'seo', 'pwa'],
+        port: chrome.port,
+    };
+    const runnerResult = await lighthouse(url, options);
+    await chrome.kill();
+    return runnerResult.lhr;
+}
+
+runLighthouse('https://your-website.com')
+    .then(results => console.log(results.categories))
+    .catch(err => console.error('Error running Lighthouse:', err));
+
+
+
+
+
 const lighthouse = require('lighthouse');
 const chromeLauncher = require('chrome-launcher');
 const fs = require('fs');

@@ -1,0 +1,28 @@
+{
+  "name": "testada",
+  "version": "1.0.0",
+  "description": "This started as a web app idea to test accessability. Then I decided to add lighthouse testing. The first part worked. I'm still working on the second part.",
+  "main": "lighthouse-audit.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/robertsmelanie/TestAda.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/robertsmelanie/TestAda/issues"
+  },
+  "homepage": "https://github.com/robertsmelanie/TestAda#readme",
+  "dependencies": {
+    "axe-core": "^4.10.3",
+    "chrome-launcher": "^1.1.2",
+    "express": "^5.1.0",
+    "lighthouse": "^12.6.0",
+    "pa11y": "^8.0.0"
+  }
+}
