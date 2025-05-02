@@ -1,6 +1,7 @@
 {
   "name": "testada",
   "version": "1.0.0",
+  "type": "module",
   "description": "This started as a web app idea to test accessability. Then I decided to add lighthouse testing. The first part worked. I'm still working on the second part.",
   "main": "lighthouse-audit.js",
   "scripts": {
