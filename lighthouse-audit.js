@@ -4,7 +4,13 @@ import lighthouse from 'lighthouse';
 import fs from 'fs';
 import express from 'express';
 const app = express();
+import pkg from 'axe-core';
+const { run } = pkg;
 
+(async () => {
+    const results = await run(document, { /* your config */ });
+    console.log(results.violations);
+})();
 
 app.get('/lighthouse', async (req, res) => {
     try {
@@ -23,7 +29,7 @@ app.listen(3000, () => {
 const report = await runLighthouse(url);
 fs.writeFileSync('lighthouse-report.json', JSON.stringify(report, null, 2));
 
-import { run } from 'axe-core';
+// import { run } from 'axe-core';
 
 async function runLighthouse(url) {
     const chrome = await launch({ chromeFlags: ['--headless'] });
@@ -47,9 +53,9 @@ runLighthouse('https://your-website.com')
 
 
 
-const lighthouse = require('lighthouse');
+// const lighthouse = require('lighthouse');
 const chromeLauncher = require('chrome-launcher');
-const fs = require('fs');
+// const fs = require('fs');
 
 (async () => {
     const chrome = await chromeLauncher.launch({ chromeFlags: ['--headless'] });
@@ -63,8 +69,8 @@ const fs = require('fs');
     await chrome.kill();
 })();
 const puppeteer = require('puppeteer');
-const lighthouse = require('lighthouse');
-const fs = require('fs');
+// const lighthouse = require('lighthouse');
+// const fs = require('fs');
 
 (async () => {
     const browser = await puppeteer.launch({ headless: true, args: ['--remote-debugging-port=9222'] });
@@ -87,4 +93,3 @@ const fs = require('fs');
 
     await browser.close();
 })();
-const express = require('express');

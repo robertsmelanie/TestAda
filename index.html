@@ -37,6 +37,25 @@
                     <button id="ac-scan-btn">Scan Website</button>
                 </div>
             </div>
+            <!-- ADA (Accessibility) Test Form -->
+            <div>
+                <h2>Accessibility (ADA) Test</h2>
+                <form id="ada-form">
+                    <input type="text" id="ada-url" placeholder="Enter URL to test accessibility" required />
+                    <button type="submit">Run ADA Test</button>
+                </form>
+                <pre id="ada-results">Awaiting ADA test…</pre>
+            </div>
+            
+            <!-- Lighthouse Test Form -->
+            <div>
+                <h2>Lighthouse Test</h2>
+                <form id="lh-form">
+                    <input type="text" id="lh-url" placeholder="Enter URL to run Lighthouse" required />
+                    <button type="submit">Run Lighthouse</button>
+                </form>
+                <pre id="lh-results">Awaiting Lighthouse test…</pre>
+            </div>
         </div>
     
       <script src="script.js"></script>
