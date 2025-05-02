@@ -59,7 +59,32 @@
         </div>
     
       <script src="script.js"></script>
-    
+      <!-- The below is here temporarily to test the ADA and Lighthouse tests -->
+    <script>
+        // Helper to display JSON in a <pre>
+        function showResults(containerId, data) {
+            document.getElementById(containerId).textContent =
+                JSON.stringify(data, null, 2);
+        }
+
+        // ADA form handler
+        document.getElementById('ada-form').addEventListener('submit', async e => {
+            e.preventDefault();
+            const url = document.getElementById('ada-url').value;
+            const res = await fetch(`/a11y?url=${encodeURIComponent(url)}`);  // fetch via GET :contentReference[oaicite:0]{index=0}
+            const data = await res.json();
+            showResults('ada-results', data);
+        });
+
+        // Lighthouse form handler
+        document.getElementById('lh-form').addEventListener('submit', async e => {
+            e.preventDefault();
+            const url = document.getElementById('lh-url').value;
+            const res = await fetch(`/lighthouse?url=${encodeURIComponent(url)}`);  // fetch via GET :contentReference[oaicite:1]{index=1}
+            const data = await res.json();
+            showResults('lh-results', data);
+        });
+    </script>
     
     
     </body>
