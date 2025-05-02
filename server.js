@@ -40,4 +40,30 @@ function computeGrade(count) {
     return 'D';
 }
 
+app.get(api.lighthouse, async (req, res) => {
+    const { url } = req.query;
+    if (!url) return res.status(400).json({ error: 'Missing URL' });
+    try {
+        const response = await fetch(url);
+        const html = await response.text();
+        const { window } = new JSDOM(html, { runScripts: 'dangerously' });
+        // Inject lighthouse source
+        const script = window.document.createElement('script');
+        script.textContent = lighthouse.source;
+        window.document.head.appendChild(script);
+        // Run lighthouse check
+        const results = await window.eval(`lighthouse.run()`);
+        // Simplify results
+        const issues = results.violations.map(v => ({
+            issue: v.description,
+            recommendation: v.help
+        }));
+        // Compute grade simple example
+        const grade = computeGrade(issues.length);
+        res.json({ grade, issues, reportUrl: null });
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
+
 app.listen(3000, () => console.log('Server listening on port 3000'));
